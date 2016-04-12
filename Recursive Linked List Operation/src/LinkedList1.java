@@ -6,7 +6,7 @@
 
 /**
  *
- * @author zacha
+ * @author Zach Murphy
  */
 public class LinkedList1 {
     
@@ -268,6 +268,71 @@ public class LinkedList1 {
       return true;       
     }
     
+        public void reverse(){
+        first = reverse(first);
+        //set te last ref
+        last = first;
+        if(last !=null){
+            while(last.next !=null){
+                last = last.next;
+            }
+        }
+    }
+    
+    public void sort(){
+        //call recursive method
+        first = sort(first);
+        //rest the last reference
+        last = first;
+        if(last != null){
+            while(last.next != null){
+                last = last.next;
+            }
+        }
+    }
+
+    
+
+        //uses parameter to reverse order of linked list
+    private Node reverse(Node list){
+        //condition
+        if(list == null || list.next == null){
+            return list;
+        }
+        Node head = list;
+        list = reverse(list.next);
+        
+        //puts old head in end of list
+        Node refLast = list;
+        while(refLast.next != null){
+            refLast = refLast.next;
+        }
+        refLast.next = head;
+        head.next = null;
+        
+        return list;
+        
+    }
+    //takes a parameter a parameter of the linked list and returns the sorted version
+    private Node sort(Node list){
+        if(list == null) return null;
+        Node head = list;
+        list = sort(list.next);
+        
+        list = insertSorted(head, list);
+        
+        return list;
+    }
+
+        //takes 2 parameters takes n and puts it in sortedList
+    private Node insertSorted(Node n, Node sortedList){
+        if(sortedList == null || n.value.compareTo(sortedList.value)<0){
+            n.next = sortedList;
+            return n;
+        }
+        sortedList.next = insertSorted(n, sortedList.next);
+        return sortedList;
+    }
 
 }
 

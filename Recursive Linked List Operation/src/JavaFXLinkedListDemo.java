@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author zacha
+ * @author Zach Murphy
  */
 public class JavaFXLinkedListDemo extends Application {
     
@@ -61,7 +61,7 @@ public class JavaFXLinkedListDemo extends Application {
         
         // Set up the scene and show the stage.
         stage.setScene(new Scene(vBox));
-        stage.setTitle("JavaFX Linked List Demo");
+        stage.setTitle("Linked List Tool");
         stage.show();           
     }
     
@@ -143,6 +143,13 @@ class CommandHandler implements EventHandler<ActionEvent>
                resultTextField.setText(resText1);
                return; 
             case "reverse":
+                ll.reverse();
+                listView.setText(ll.toString());
+                return;
+            case "sort":
+                ll.sort();
+                listView.setText(ll.toString());
+                return;
                 
         }          
     }            
