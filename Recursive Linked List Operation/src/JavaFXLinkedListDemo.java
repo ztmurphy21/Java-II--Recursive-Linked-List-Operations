@@ -141,7 +141,9 @@ class CommandHandler implements EventHandler<ActionEvent>
             case "size":
                String resText1 = String.valueOf(ll.size());
                resultTextField.setText(resText1);
-               return;                
+               return; 
+            case "reverse":
+                
         }          
     }            
 }

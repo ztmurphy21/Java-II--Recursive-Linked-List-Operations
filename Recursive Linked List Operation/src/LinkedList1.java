@@ -46,6 +46,8 @@ public class LinkedList1 {
 	 
     private Node first;  // list head
     private Node last;   // last element in list
+    
+    
 	     
     /**
        Constructor.
@@ -56,6 +58,8 @@ public class LinkedList1 {
         first = null;
         last = null;        
     }
+    
+    
     
     /**
        The isEmpty method checks to see 
